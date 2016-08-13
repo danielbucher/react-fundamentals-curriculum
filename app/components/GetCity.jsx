@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 
 const styles = {
   container: {
@@ -15,7 +16,9 @@ const InputField = (props) => {
   return (
     <input type="text"
       placeholder="São Paulo, SP"
-      className="form-control" />
+      className="form-control"
+      onChange={props.onUpdateCity}
+      value={props.city} />
   );
 };
 
@@ -23,7 +26,8 @@ const Button = (props) => {
   return (
     <button type="button"
       style={{margin: 10}}
-      className="btn btn-success">
+      className="btn btn-success"
+      onClick={props.onSubmitCity}>
       {props.children}
     </button>
   );
@@ -32,12 +36,19 @@ const Button = (props) => {
 const GetCity = (props) => {
   return (
     <div style={styles.container}>
-      <InputField />
-      <Button>
+      <InputField onUpdateCity={props.onUpdateCity}
+        city={props.city} />
+      <Button onSubmitCity={props.onSubmitCity}>
         Get Weather
       </Button>
     </div>
   );
 };
+
+GetCity.propTypes = {
+  onSubmitCity: PropTypes.func.isRequired,
+  onUpdateCity: PropTypes.func.isRequired,
+  city: PropTypes.string.isRequired
+}
 
 module.exports = GetCity;
