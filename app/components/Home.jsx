@@ -22,12 +22,10 @@ var styles = {
 const Home = () => {
   return (
     <div style={styles.container}>
-      <div>
-        <h1 style={styles.header}>
-          Enter a City and a State
-        </h1>
-        <GetCity />
-      </div>
+      <h1 style={styles.header}>
+        Enter a City and a State
+      </h1>
+      <GetCity />
     </div>
   );
 };

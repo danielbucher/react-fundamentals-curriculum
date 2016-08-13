@@ -21,7 +21,9 @@ const InputField = (props) => {
 
 const Button = (props) => {
   return (
-    <button type="button" className="btn btn-success">
+    <button type="button"
+      style={{margin: 10}}
+      className="btn btn-success">
       {props.children}
     </button>
   );
