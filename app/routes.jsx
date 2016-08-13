@@ -4,7 +4,7 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
-var Main = require('./components/Main.jsx');
+var Main = require('./containers/Main.jsx');
 var Home = require('./components/Home.jsx');
 
 
