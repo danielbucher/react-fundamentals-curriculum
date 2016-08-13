@@ -1,7 +1,7 @@
 var React = require('react');
 var GetCity = require('./GetCity.jsx');
 
-var styles = {
+const styles = {
   container: {
     backgroundSize: 'cover',
     backgroundImage: "url('app/images/pattern.svg')",
@@ -17,7 +17,7 @@ var styles = {
     color: '#fff',
     fontWeight: 100,
   }
-}
+};
 
 const Home = (props) => {
   return (
