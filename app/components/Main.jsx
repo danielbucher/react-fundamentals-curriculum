@@ -3,11 +3,11 @@ var React = require('react');
 const HelloWorld = () => {
   return (
     <div>
-      <p>
-        Hello World!
-      </p>
+      <h2>
+        Main.jsx Header
+      </h2>
     </div>
-  )
-}
+  );
+};
 
 module.exports = HelloWorld;
