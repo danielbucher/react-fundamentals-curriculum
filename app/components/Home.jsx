@@ -19,7 +19,7 @@ var styles = {
   }
 }
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div style={styles.container}>
       <h1 style={styles.header}>
