@@ -1,4 +1,5 @@
 var React = require('react');
+var GetCity = require('./GetCity.jsx');
 
 var styles = {
   container: {
@@ -10,13 +11,23 @@ var styles = {
     alignItems: 'center',
     height: '100%',
     width: '100%'
+  },
+  header: {
+    fontSize: 45,
+    color: '#fff',
+    fontWeight: 100,
   }
 }
 
 const Home = () => {
   return (
     <div style={styles.container}>
-      <p>Home!</p>
+      <div>
+        <h1 style={styles.header}>
+          Enter a City and a State
+        </h1>
+        <GetCity />
+      </div>
     </div>
   );
 };
