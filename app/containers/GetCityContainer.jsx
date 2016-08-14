@@ -1,7 +1,16 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 var GetCity = require('../components/GetCity.jsx');
 
 var GetCityContainer = React.createClass({
+  propTypes: {
+    direction: PropTypes.oneOf(['column', 'row'])
+  },
+  getDefaultProps: function() {
+    return {
+      direction: 'column'
+    };
+  },
   getInitialState: function() {
     return {
       city: ''
@@ -21,6 +30,7 @@ var GetCityContainer = React.createClass({
   render: function() {
     return (
       <GetCity
+        direction={this.props.direction}
         onSubmitCity={this.handleSubmitCity}
         onUpdateCity={this.handleUpdateCity}
         city={this.state.city} />
