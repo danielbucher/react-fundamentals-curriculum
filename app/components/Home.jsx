@@ -25,7 +25,8 @@ const Home = (props) => {
       <h1 style={styles.header}>
         Enter a City and a State
       </h1>
-      <GetCityContainer />
+      <GetCityContainer
+        direction="column" />
     </div>
   );
 };

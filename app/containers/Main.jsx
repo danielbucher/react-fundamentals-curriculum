@@ -1,4 +1,5 @@
 var React = require('react');
+var HeaderContainer = require('./HeaderContainer.jsx');
 
 var styles = {
   container: {
@@ -11,9 +12,7 @@ var Main = React.createClass({
   render: function() {
     return (
       <div style={styles.container}>
-        <h1>
-          Main.jsx Header
-        </h1>
+        <HeaderContainer />
         {this.props.children}
       </div>
     );
