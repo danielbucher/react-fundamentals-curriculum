@@ -1,17 +1,6 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    maxWidth: 300,
-    alignSelf: 'right'
-  }
-};
-
 const InputField = (props) => {
   return (
     <input type="text"
@@ -33,9 +22,20 @@ const Button = (props) => {
   );
 };
 
+const getStyles = (direction) => {
+  return {
+    display: 'flex',
+    flexDirection: direction || 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    maxWidth: 300,
+    alignSelf: 'right'
+  };
+}
+
 const GetCity = (props) => {
   return (
-    <div style={styles.container}>
+    <div style={getStyles(props.direction)}>
       <InputField onUpdateCity={props.onUpdateCity}
         city={props.city} />
       <Button onSubmitCity={props.onSubmitCity}>
@@ -46,6 +46,7 @@ const GetCity = (props) => {
 };
 
 GetCity.propTypes = {
+  direction: PropTypes.oneOf(['column', 'row']),
   onSubmitCity: PropTypes.func.isRequired,
   onUpdateCity: PropTypes.func.isRequired,
   city: PropTypes.string.isRequired
