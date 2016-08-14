@@ -4,9 +4,7 @@ var Header = require('../components/Header.jsx');
 var HeaderContainer = React.createClass({
   render: function() {
     return (
-      <div>
-        <Header />
-      </div>
+      <Header />
     )
   }
 });
