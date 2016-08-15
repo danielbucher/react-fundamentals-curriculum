@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var GetCity = require('../components/GetCity.jsx');
+var api = require('../helpers/api');
 
 var GetCityContainer = React.createClass({
   propTypes: {
@@ -17,12 +18,9 @@ var GetCityContainer = React.createClass({
     };
   },
   handleSubmitCity: function() {
-    var logMessage = "Hi there, I'm a function and should handle submiting the city:";
-    console.log(logMessage + this.state.city);
-    return null;
+    api.getWeather(this.state.city);
   },
   handleUpdateCity: function(e) {
-    console.log(e);
     this.setState({
       city: e.target.value
     });
