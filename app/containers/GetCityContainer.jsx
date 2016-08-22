@@ -7,6 +7,9 @@ var GetCityContainer = React.createClass({
   propTypes: {
     direction: PropTypes.oneOf(['column', 'row'])
   },
+  contextTypes: {
+    router: React.PropTypes.object
+  },
   getDefaultProps: function() {
     return {
       direction: 'column'
@@ -18,7 +21,10 @@ var GetCityContainer = React.createClass({
     };
   },
   handleSubmitCity: function() {
-    api.getWeather(this.state.city);
+    const encodedCity = encodeURIComponent(this.state.city);
+    const path = "/forecast/" + encodedCity;
+
+    this.context.router.push(path);
   },
   handleUpdateCity: function(e) {
     this.setState({
