@@ -18,16 +18,12 @@ var styles = {
 
 var Forecast = React.createClass({
   propTypes: {
-    city: PropTypes.string.isRequired
-  },
-  getInitialState: function() {
-    return {
-      loading: true
-    };
+    city: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
   },
   render: function() {
     return (
-      this.state.loading
+      this.props.loading
         ? <ForecastLoading text="Loading" speed={300} />
         : <ForecastLoaded city={this.props.city} />
     );
