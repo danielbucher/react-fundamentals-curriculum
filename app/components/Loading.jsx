@@ -14,7 +14,7 @@ var styles = {
     width: '100%',
     marginTop: '30px',
   }
-}
+};
 
 var Loading = React.createClass({
   propTypes: {
