@@ -12,7 +12,7 @@ var styles = {
   content: {
     textAlign: 'center',
     width: '100%',
-    marginTop: '30px',
+    marginTop: '30px'
   }
 };
 
