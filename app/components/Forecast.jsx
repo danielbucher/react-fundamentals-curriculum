@@ -2,38 +2,77 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var Loading = require('./Loading.jsx')
 
-function puke (obj) {
-  return <pre>{JSON.stringify(obj, null, ' ')}</pre>
-}
-
 var styles = {
   container: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0
+    color: '#555'
   },
-  title: {
-    fontSize: '55px',
+  header: {
     textAlign: 'center',
-    width: '100%',
+    fontSize: '65px',
+    fontWeight: 100,
     marginTop: '30px'
   },
   content: {
-    width: '100%',
-    paddingLeft: '5px',
-    paddingRight: '5px'
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    maxWidth: 1200,
+    margin: '50px auto'
+  },
+  dayContainer: {
+    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    margin: 35
+  },
+  dayIcon: {
+    height: 130
+  },
+  dayContent: {
+    fontSize: 30,
+    fontWeight: 100
   }
 };
-
 
 const ForecastLoaded = (props) => {
   return (
     <div style={styles.container}>
-      <h3 style={styles.title}>{props.city} Forecast</h3>
-      <div style={styles.content}>{puke(props.forecastData)}</div>
+      <h3 style={styles.header}>
+        {props.city} Forecast
+      </h3>
+
+      <div style={styles.content}>
+        {props.forecastData.list.map(function(listItem) {
+          return (
+            <DailyWeather
+              key={listItem.dt}
+              dayData={listItem} />
+          );
+        })}
+      </div>
     </div>
   );
+};
+
+const DailyWeather = (props) => {
+  var icon = props.dayData.weather[0].icon
+  var date = props.dayData.dt
+  return (
+    <div style={styles.dayContainer}>
+      <img
+        src={"./app/images/weather-icons/" + icon + ".svg"}
+        alt="Weather"
+        style={styles.dayIcon} />
+
+      <h2 style={styles.dayContent}>
+        {date}
+      </h2>
+    </div>
+  )
 };
 
 var Forecast = React.createClass({
