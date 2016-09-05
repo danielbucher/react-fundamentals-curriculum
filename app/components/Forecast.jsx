@@ -1,4 +1,5 @@
 var React = require('react');
+var dateUtils = require('../helpers/dateUtils');
 var PropTypes = React.PropTypes;
 var Loading = require('./Loading.jsx')
 
@@ -59,8 +60,8 @@ const ForecastLoaded = (props) => {
 };
 
 const DailyWeather = (props) => {
-  var icon = props.dayData.weather[0].icon
-  var date = props.dayData.dt
+  var icon = props.dayData.weather[0].icon;
+  var date = dateUtils.getDisplayDate(props.dayData.dt);
   return (
     <div style={styles.dayContainer}>
       <img
