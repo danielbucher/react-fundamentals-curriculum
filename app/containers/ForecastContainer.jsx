@@ -16,7 +16,6 @@ var ForecastContainer = React.createClass({
   componentDidMount: function() {
     api.getForecast(this.props.params.city)
       .then(function(forecastData) {
-        console.log(forecastData);
         this.setState({
           forecastData: forecastData,
           loading: false
